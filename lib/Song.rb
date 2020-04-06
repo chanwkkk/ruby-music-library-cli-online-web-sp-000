@@ -7,7 +7,7 @@ extend Concerns::Findable
   attr_reader :artist
   @@all=[]
 
-  def initialize(name, artist=artist,genre=genre)
+  def initialize(name, artist=nil,genre=nil)
     @name=name
     self.artist=(artist) if artist.class==Artist
     self.genre=(genre) if genre.class==Genre
@@ -23,7 +23,7 @@ extend Concerns::Findable
   end
 
   def save
-    self.class.all<<self unless self.class.all.include?(self)
+    self.class.all<<self# unless self.class.all.include?(self)
   end
 
   def self.create(name)
